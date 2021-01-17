@@ -20,3 +20,7 @@ Metadata about the meaning of station fields is at:
 General station metadata landing page:
 
 > https://www.ncdc.noaa.gov/homr/reports
+
+Additional 3rd-party human-readable documentation of station metadata details:
+
+> http://www.weathergraphics.com/identifiers/master-location-identifier-database.pdf
