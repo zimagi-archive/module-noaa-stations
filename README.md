@@ -5,6 +5,14 @@ Historical through current weather data, by station, is available at:
 
 > https://www.ncei.noaa.gov/data/global-summary-of-the-day/access/
 
+Metadata about meaning of station data fields is at:
+
+> https://www.ncei.noaa.gov/data/global-summary-of-the-day/doc/readme.txt
+
 Cross reference station information by identifier is (probably) at:
 
 > http://www.weathergraphics.com/identifiers/master-location-identifier-database-20130801.csv
+
+Metadata about the meaning of station fields is at:
+
+> http://www.weathergraphics.com/identifiers/master-location-identifier-database.pdf
