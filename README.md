@@ -11,8 +11,12 @@ Metadata about meaning of station data fields is at:
 
 Cross reference station information by identifier is (probably) at:
 
-> http://www.weathergraphics.com/identifiers/master-location-identifier-database-20130801.csv
+> https://www.ncdc.noaa.gov/homr/file/mshr_enhanced.txt.zip
 
 Metadata about the meaning of station fields is at:
 
-> http://www.weathergraphics.com/identifiers/master-location-identifier-database.pdf
+> https://www.ncdc.noaa.gov/homr/file/MSHR_Enhanced_Table.txt
+
+General station metadata landing page:
+
+> https://www.ncdc.noaa.gov/homr/reports
