@@ -24,3 +24,16 @@ General station metadata landing page:
 Additional 3rd-party human-readable documentation of station metadata details:
 
 > http://www.weathergraphics.com/identifiers/master-location-identifier-database.pdf
+
+# Initializing Zimagi
+
+(local) vagrant up
+(local) vagrant ssh
+(vagrant) zimagi env get
+(vagrant) zimagi module add https://github.com/zimagi/module-noaa-stations.git
+(vagrant) zimagi env get
+
+(local) cd ../zimagi/lib/modules/default/
+(local) ls noaa-stations
+
+
