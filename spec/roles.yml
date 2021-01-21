@@ -1,0 +1,5 @@
+roles: 
+  noaa-admin: Administer NOAA weather data
+  viewer: User who can view weather data
+
+
