@@ -1,5 +1,6 @@
 data_mixins: 
   station:
+    class: StationMixin
     fields:
       station: 
         type: "@django.ForeignKey"
@@ -12,6 +13,7 @@ data_mixins:
 data_base:
   station:
     # Every model (usually) based on resource
+    class: StationBase
     base: resourse
     mixins: [station]
     id_fields: [number]
@@ -26,6 +28,7 @@ data:
   # Fields 'name', 'id', 'updated', 'created' implicitly
   # created by base resource (id/updated/created internal)
   station:
+    class: Station
     # Environment extends resource in Zimagi core
     base: environment
     # Primary key (not necessarily externally facing)
@@ -70,6 +73,7 @@ data:
 command_mixins:
   # Generate methods on other classes
   station:
+    class: StationCommandMixin
     meta: 
       # Name used in commands (not required to be same as table)
       # Ref: mixin_name
@@ -83,6 +87,7 @@ command_base:
   # Define a base command with settings
   # Same name as data model by convention, not requirement
   station_base:
+    class: StationCommandBase
     mixins: [station]
     # Accessible via the API
     server_enabled: true
