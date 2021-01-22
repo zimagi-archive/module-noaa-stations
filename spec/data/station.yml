@@ -1,0 +1,13 @@
+data_mixins: 
+  station:
+    fields:
+      station: 
+        type: "@django.ForeignKey"
+        relation: station
+        options: 
+          null: true
+          on_delete: "@django.PROTECT"
+          editable: false
+
+
+
