@@ -1,4 +1,5 @@
 # module-noaa-stations
+
 Zimagi module for collecting data from NOAA weather station data
 
 Historical through current weather data, by station, is available at:
@@ -25,7 +26,7 @@ Additional 3rd-party human-readable documentation of station metadata details:
 
 > http://www.weathergraphics.com/identifiers/master-location-identifier-database.pdf
 
-# Initializing Zimagi
+## Initializing Zimagi
 
 (local) vagrant up
 (local) vagrant ssh
@@ -33,7 +34,13 @@ Additional 3rd-party human-readable documentation of station metadata details:
 (vagrant) zimagi module add https://github.com/zimagi/module-noaa-stations.git
 (vagrant) zimagi env get
 
-(local) cd ../zimagi/lib/modules/default/
+(local) cd lib/modules/default/
 (local) ls noaa-stations
+
+After editing e.g. station.yml:
+
+(vagrant) # Pull changes from GitHub:
+(vagrant) zimagi module save noaa-stations
+(vagrant) zimagi makemigrations
 
 
