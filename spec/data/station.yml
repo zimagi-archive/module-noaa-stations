@@ -1,11 +1,11 @@
-data_mixins: 
+data_mixins:
   station:
     class: StationMixin
     fields:
-      station: 
+      station:
         type: "@django.ForeignKey"
         relation: station
-        options: 
+        options:
           "null": true
           on_delete: "@django.PROTECT"
           editable: false
@@ -14,10 +14,10 @@ data_base:
   station:
     # Every model (usually) based on resource
     class: StationBase
-    base: resourse
+    base: resource
     mixins: [station]
     id_fields: [number]
-    meta: 
+    meta:
       # Number alone probably unique, demonstrate compound key
       unique_together: [number, name]
       # Updates must define station
@@ -35,17 +35,17 @@ data:
     id_fields: [number, name]
     # Unique identifier within the scope
     key: number
-    roles: 
+    roles:
       # Redundant to specify 'admin'
       edit: [noaa-admin, admin]
       # Editors are automatically viewers
-      # Public does not require authentication 
+      # Public does not require authentication
       # (viewer will authenticate if public were not listed)
       view: [viewer, public]
     fields:
-      number:       
+      number:
         type: "@django.CharField"
-        options: 
+        options:
           "null": false
           max_length: 255
           # editable is default (not specified)
@@ -74,7 +74,7 @@ command_mixins:
   # Generate methods on other classes
   station:
     class: StationCommandMixin
-    meta: 
+    meta:
       # Name used in commands (not required to be same as table)
       # Ref: mixin_name
       station:
@@ -95,7 +95,7 @@ command_base:
     groups_allowed: [noaa-admin]
 
 command:
-  station: 
+  station:
     # Maps back to data object
     resource: station
     base: station_base
