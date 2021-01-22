@@ -67,4 +67,50 @@ data:
       # Fuzzy string search
       search_fields: [number, name]
 
+command_mixins:
+  # Generate methods on other classes
+  station:
+    meta: 
+      # Name used in commands (not required to be same as table)
+      # Ref: mixin_name
+      station:
+        # Link back to dynamic class station
+        data: station
+        # Positive integer (lowest is highest priority)
+        priority: 1
+
+command_base:
+  # Define a base command with settings
+  # Same name as data model by convention, not requirement
+  station_base:
+    mixins: [station]
+    # Accessible via the API
+    server_enabled: true
+    # Only these groups can use 'station' command
+    groups_allowed: [noaa-admin]
+
+command:
+  station: 
+    # Maps back to data object
+    resource: station
+    base: station_base
+    # Show later than core commands
+    priority: 99
+
+  # Alternate command (does same thing to demonstrate)
+  bahnhof:
+    # Maps back to data object
+    resource: station
+    base: station_base
+    # Show later than core commands
+    priority: 98
+    # Tie into object type (to match prefix for mixin)
+    # I.e. match ref mixin_name
+    base_name: station
+
+
+
+
+
+
 
