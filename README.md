@@ -52,10 +52,10 @@ After editing e.g. station.yml:
 (vagrant) zimagi makemigrations
 ```
 
-Copy generated files to module repo and check them in, e.g.
+Add a remote to the working zimagi repo for the module 
 
 ```bash
-(local) cp -r ../zimagi/lib/modules/default/noaa-stations ./data
-(local) git add data
+(local) git remote add noaa git@github.com:zimagi/module-noaa-stations.git
+(local) git push noaa master
 ```
 
