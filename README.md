@@ -28,19 +28,34 @@ Additional 3rd-party human-readable documentation of station metadata details:
 
 ## Initializing Zimagi
 
+```bash
 (local) vagrant up
 (local) vagrant ssh
+```
+
+```bash
 (vagrant) zimagi env get
 (vagrant) zimagi module add https://github.com/zimagi/module-noaa-stations.git
 (vagrant) zimagi env get
+```
 
+```bash
 (local) cd lib/modules/default/
 (local) ls noaa-stations
+```
 
 After editing e.g. station.yml:
 
+```bash
 (vagrant) # Pull changes from GitHub:
 (vagrant) zimagi module save noaa-stations
 (vagrant) zimagi makemigrations
+```
 
+Copy generated files to module repo and check them in, e.g.
+
+```bash
+(local) cp -r ../zimagi/lib/modules/default/noaa-stations ./data
+(local) git add data
+```
 
