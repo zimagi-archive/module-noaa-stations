@@ -91,7 +91,7 @@ command_base:
     mixins: [station]
     # Accessible via the API
     server_enabled: true
-    # Only these groups can use 'station' command
+    # Only these groups can use 'station' commands
     groups_allowed: [noaa-admin]
 
 command:
@@ -107,15 +107,8 @@ command:
     # Maps back to data object
     resource: station
     base: station_base
-    # Show later than core commands
-    priority: 98
     # Tie into object type (to match prefix for mixin)
     # I.e. match ref mixin_name
     base_name: station
-
-
-
-
-
-
-
+    # Show later than core commands
+    priority: 98
