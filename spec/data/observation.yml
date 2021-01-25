@@ -1,0 +1,73 @@
+data:
+  # Actual data models turned into tables
+  # Fields 'name', 'id', 'updated', 'created' implicitly
+  # created by base station (id/updated/created internal)
+  observation:
+    class: Observation
+    # Observation extends Station base data model
+    base: station
+    # Primary key (not necessarily externally facing)
+    id_fields: [station_id, date]
+    # Unique identifier within the scope
+    key: id
+    roles:
+      # Redundant to specify 'admin'
+      edit: [noaa-admin, admin]
+      # Editors are automatically viewers
+      # Public does not require authentication
+      # (viewer will authenticate if public were not listed)
+      view: [viewer, public]
+    fields:
+      name: null
+      date:
+        type: "@django.DateField"
+        options:
+          "null": true
+      temp:
+        # In degrees
+        type: "@django.FloatField"
+        options:
+          "null": true
+      temp_attrs:
+        type: "@django.IntegerField"
+        options:
+          "null": true
+    meta:
+      unique_together: [station_id, date]
+      # Display ordered by station id and latest date first
+      ordering: [station_id, "-date"]
+      # Fuzzy string search
+      search_fields: [station__name, date]
+
+command_mixins:
+  # Generate methods on other classes
+  observation:
+    class: ObservationCommandMixin
+    mixins: [station]
+    meta:
+      # Name used in commands (not required to be same as table)
+      # Ref: mixin_name
+      observation:
+        # Link back to dynamic class observation
+        data: observation
+        # Positive integer (lowest is highest priority)
+        priority: 5
+
+command_base:
+  # Define a base command with settings
+  # Same name as data model by convention, not requirement
+  observation_base:
+    class: ObservationCommandBase
+    mixins: [observation]
+    # Accessible via the API
+    server_enabled: true
+    # Only these groups can use 'observation' commands
+    groups_allowed: [noaa-admin]
+
+command:
+  observation:
+    # Maps back to data object
+    resource: observation
+    base: observation_base
+    # Show later than core commands
+    priority: 105
