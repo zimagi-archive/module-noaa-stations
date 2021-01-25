@@ -9,7 +9,7 @@ data:
     # Primary key (not necessarily externally facing)
     id_fields: [station_id, date]
     # Unique identifier within the scope
-    key: id
+    key: date
     roles:
       # Redundant to specify 'admin'
       edit: [noaa-admin, admin]
