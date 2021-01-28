@@ -30,6 +30,7 @@ class Provider(BaseProvider("source", "noaa_station")):
                     station_url = f"{year_url}/{station_id}.csv"
                     resp = requests.get(station_url)
                     if resp.status_code == 200:
+                        logger.info(f"Pulled {station_url}")
                         df = pd.read_csv(io.StringIO(resp.text))
                         df[df['TEMP'] == 9999.9, 'TEMP'] = None
                         yield from df.iterrows()
