@@ -1,16 +1,18 @@
 plugin:
   source:
-    noaa_stations:
-      requirement:
-        min_year:
-          type: int
-          help: The beginning year to query
-        max_year:
-          type: int
-          help: The end year to query
-      option:
-        station_ids:
-          type: list
-          help: A list of station IDs to include
-          default: nul
+    # Identify providers across modules
+    providers:
+      noaa_stations:
+        requirement:
+          min_year:
+            type: int
+            help: The beginning year to query
+          max_year:
+            type: int
+            help: The end year to query
+        option:
+          station_ids:
+            type: list
+            help: A list of station IDs to include
+            default: nul
 
