@@ -1,0 +1,45 @@
+_observation: &observation
+  source: noaa_stations
+  data:
+    station: 
+      map:
+        # "number" as defined in spec/data/station.yml
+        number: 
+          # "station_id" as defined in plugins/source/noaa_stations.py
+          column: station_id
+        name:
+          column: station_name
+        lat:
+          column: latitude
+        lon:
+          column: longitude
+        elevation:
+          column: elevation
+
+    observation:
+      relations: 
+        station_id: 
+          # Mapping back to "station" as defined in spec/data/station.yml
+          data: station
+          # Mapping back to plugins/source/noaa_stations.py
+          column: station_id
+          required: true
+      map:
+        date: 
+          column: date
+        temp:
+          column: temperature
+        temp_attrs: 
+          column: temperature_attrs
+
+import:
+  test:
+    # Identical to including the body of _observation here
+    <<: *observation
+    # In concept we could override definition from reference, e.g.
+    # source: something_else
+    tags: [observations]
+    min_year: 1929
+    max_year: 1931
+    station_ids: ["03005099999", "99006199999"]
+
