@@ -59,3 +59,9 @@ Add a remote to the working zimagi repo for the module
 (local) git push noaa master
 ```
 
+Examine python/database
+
+```bash
+(vagrant) zimagi shell
+(vagrant) zimagi dbshell
+````
