@@ -14,5 +14,4 @@ plugin:
           station_ids:
             type: list
             help: A list of station IDs to include
-            default: nul
-
+            default: null
