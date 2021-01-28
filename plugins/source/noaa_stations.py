@@ -7,7 +7,7 @@ import io
 
 logger = logging.getLogger(__name__)
 
-class Provider(BaseProvider("source", "noaa_station")):
+class Provider(BaseProvider("source", "noaa_stations")):
     "Generate a parent class based on 'source' and plugin definition"
 
     # Three interface methods required: item_columns, load_items, load_item
