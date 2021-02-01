@@ -36,7 +36,7 @@ data:
       unique_together: [station_id, date]
       # Display ordered by station id and latest date first
       ordering: [station_id, "-date"]
-      # Fuzzy string search
+      # Fuzzy string search (double underscore for field)
       search_fields: [station__name, date]
 
 command_mixins:
