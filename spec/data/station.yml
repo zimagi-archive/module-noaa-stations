@@ -101,6 +101,7 @@ command:
     base: station_base
     # Show later than core commands
     priority: 99
+    groups_allowed: [noaa-admin, admin]
 
   # Alternate command (does same thing to demonstrate)
   bahnhof:
